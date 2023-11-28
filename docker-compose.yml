@@ -10,7 +10,7 @@ services:
     #  - "9003:9003"
     volumes:
       - ./src:/var/www/html
-      - ./test:/var/www/html/test  # Nueva línea para mapear la carpeta ./test
+      - ./tests:/var/www/html/tests  # Nueva línea para mapear la carpeta ./test
 
     environment:
       - XDEBUG_ENABLED=${XDEBUG_ENABLED:-0}
