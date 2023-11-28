@@ -10,6 +10,8 @@ services:
     #  - "9003:9003"
     volumes:
       - ./src:/var/www/html
+      - ./test:/var/www/html/test  # Nueva línea para mapear la carpeta ./test
+
     environment:
       - XDEBUG_ENABLED=${XDEBUG_ENABLED:-0}
       #XDEBUG_CONFIG: remote_host=host.docker.internal remote_port=9000 remote_enable=1
