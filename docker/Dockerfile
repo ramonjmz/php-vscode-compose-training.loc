@@ -13,12 +13,18 @@ RUN apt-get update && \
     unzip \
     -y --no-install-recommends
 
+# Install PHPUnit
+RUN cd /tmp && curl https://phar.phpunit.de/phpunit.phar > phpunit.phar && \
+    chmod +x phpunit.phar && \
+    mv /tmp/phpunit.phar /usr/local/bin/phpunit
+    
 # Install PHP Extensions
 RUN docker-php-ext-install zip pdo_mysql
 # Copia los archivos de la aplicación al contenedor
 RUN pecl install -o -f xdebug-3.1.5 \
     && docker-php-ext-enable xdebug
 # Configura el directorio de trabajo
+
 
 # Copy php.ini
 COPY ./php.ini /usr/local/etc/php/
