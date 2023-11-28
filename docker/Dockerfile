@@ -1,5 +1,5 @@
 # Usa la imagen oficial de PHP con la versión que necesitas
-FROM php:7.4-apache
+FROM php:8.1-apache
 
 # Enable rewrite mode
 RUN a2enmod rewrite
@@ -23,7 +23,7 @@ RUN pecl install -o -f xdebug-3.1.5 \
 # Copy php.ini
 COPY ./php.ini /usr/local/etc/php/
 
-ENV XDEBUG_MODE=off
+ENV XDEBUG_MODE=on
 
 COPY ./xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
