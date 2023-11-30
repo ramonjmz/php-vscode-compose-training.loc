@@ -15,18 +15,19 @@ try {
 
 $conn = null;
 
-die();
+
  
 try {
 
-    $conn = new PDO("mysq:host=$host;database=$dbname", $user,  $password);
+    $conn = new PDO("mysql:host=$host;dbname=$database", $user, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
     $sql = "CREATE TABLE cities (
         id INT AUTO_INCREMENT PRIMARY KEY,
         name VARCHAR(255) NOT NULL,
-        country VARCHAR(255) NOT NULL
+        country VARCHAR(255) NOT NULL,
+        deleted TINYINT(1) NOT NULL DEFAULT 0
     )";
 
     $conn->exec($sql);
